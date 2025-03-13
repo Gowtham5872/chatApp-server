@@ -9,7 +9,7 @@ import router from "./api/routes.js";
 import sockets from "./socket/sockets.js";
 
 await mongoose.connect(
-  "mongodb+srv://gowtham:gowtham@cluster0.gvlvfma.mongodb.net/"
+  "mongodb+srv://gowtham:gowtham@cluster0.gvlvfma.mongodb.net/test"
 );
 
 const app = express();
