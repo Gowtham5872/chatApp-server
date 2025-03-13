@@ -18,7 +18,7 @@ const PORT = 4000;
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://localhost:3000","https://chipper-blancmange-77508a.netlify.app/"],
+    origin: ["http://localhost:3000","https://chipper-blancmange-77508a.netlify.app"],
   },
 });
 
@@ -26,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://chipper-blancmange-77508a.netlify.app"],
+  origin: ["http://localhost:3000","https://chipper-blancmange-77508a.netlify.app"],
   methods: ["GET", "POST"],
   credentials: true,
 }));
