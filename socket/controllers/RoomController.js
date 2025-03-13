@@ -4,6 +4,7 @@ import BaseController from "./BaseController.js";
 export default class RoomController extends BaseController {
   joinRoom = async ({ roomId, userId }) => {
     try {
+      roomId = decodeURIComponent(roomId).trim(); // Decode and trim roomId
       const room = await Room.findOne({ roomId });
       if (!room) {
         this.socket.emit("error", { message: "Room not found." });
@@ -18,6 +19,7 @@ export default class RoomController extends BaseController {
 
   newRoomCreated = async ({ roomId, userId }) => {
     try {
+      roomId = decodeURIComponent(roomId).trim(); // Decode and trim roomId
       const room = new Room({
         name: `Room-${roomId.slice(0, 4)}`,
         roomId,
@@ -32,6 +34,7 @@ export default class RoomController extends BaseController {
 
   roomRemoved = async ({ roomId }) => {
     try {
+      roomId = decodeURIComponent(roomId).trim(); // Decode and trim roomId
       await Room.deleteOne({ roomId });
       this.socket.emit("room-removed", { roomId });
     } catch (error) {
